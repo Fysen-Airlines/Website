@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
          if (response.ok) {
                 response.json().then(data => {
                  let username = data['name'];
-                 document.getElementsByClassName("login")[0].innerText = "Welcome, " + username;
+                 document.getElementsByClassName("loginStat")[0].innerText = "Welcome, " + username;
              });
          } else {
 		window.href = '/fysen/website/login'
@@ -112,5 +112,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function redirectFlights() {
-    window.href = "/fysen/website/flights"
+    window.location.href = "/fysen/website/flights";
 }
