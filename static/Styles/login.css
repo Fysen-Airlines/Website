@@ -168,3 +168,10 @@ body::before {
         height: 50vh;
     }
 }
+
+.forgot-password > .create-account {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+}
