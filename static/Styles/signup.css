@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../Assets/1287409.jpg') center center/cover no-repeat;
+    background: url('/static/Assets/1287409.jpg') center center/cover no-repeat;
     position: relative;
 }
 
@@ -39,7 +39,7 @@ body::before {
 
 .promo-section {
     flex: 1;
-    background: url('../Assets/1287409.jpg') center center/cover no-repeat;
+    background: url('/static/Assets/1287409.jpg') center center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;

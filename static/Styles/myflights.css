@@ -2,7 +2,7 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #1c1c1e; /* Fallback color */
-    background-image: url('14.jpeg'); /* Add your background image path here */
+    background-image: url('/static/Assets/14.jpeg'); /* Add your background image path here */
     background-size: cover;  /* Cover the entire viewport */
     background-position: center;  /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */

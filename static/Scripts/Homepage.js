@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function redirectFlights() {
+function redirectFlights(event) {
+    event.preventDefault();
     window.location.href = "/fysen/website/flights"
 }

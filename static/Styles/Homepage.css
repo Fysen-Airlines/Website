@@ -53,7 +53,7 @@ body {
     border-radius: 5px;
 }
 .hero {
-    background-image: url('../Assets/Takeoff-home.png'); /* Replace with your image URL */
+    background-image: url('/static/Assets/Takeoff-home.png'); /* Replace with your image URL */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
