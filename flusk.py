@@ -41,11 +41,11 @@ def myflights():
 
 @app.route("/fysen/website/flights")
 def flights():
-    return render_template("flights.html")
+    return render_template("flightList.html")
 
-@app.route("/fysen/website/flight")
+@app.route("/fysen/website/bookflight")
 def flight():
-    return render_template("flight.html")
+    return render_template("bookflight.html")
 
 
 if __name__ == "__main__":
