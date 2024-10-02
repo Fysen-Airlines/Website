@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('image.png'); /* Add your background image here */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim the background by adding a dark overlay */
+    z-index: -1; /* Ensure it stays behind all other content */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(51, 51, 51, 0.8); /* Make nav background slightly transparent */
+}
+
+nav .logo img {
+    max-width: 60px;
+    height: 60px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links a.active-link {
+    border-bottom: 2px solid #eb5008;
+}
+
+.loyalty-page-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3); /* Make content background slightly transparent */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+h2 {
+    color: #eb5008;
+    border-bottom: 2px solid #eb5008;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.membership-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.info-item {
+    flex: 1 1 200px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent item background */
+    color: white;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.benefits-deals-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.benefits, .loyalties, .deals {
+    flex: 1 1 300px;
+    margin: 10px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent background for benefits */
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.benefits ul, .loyalties ul, .deals ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.benefits li, .loyalties li, .deals li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(51, 51, 51, 0.8); /* Slightly transparent footer background */
+    color: white;
+}

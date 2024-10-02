@@ -31,6 +31,22 @@ def register():
 def about_us():
     return render_template("about.html")
 
+@app.route("/fysen/website/profile")
+def profile():
+    return render_template("profile.html")
+
+@app.route("/fysen/website/myflights")
+def myflights():
+    return render_template("myflights.html")
+
+@app.route("/fysen/website/flights")
+def flights():
+    return render_template("flights.html")
+
+@app.route("/fysen/website/flight")
+def flight():
+    return render_template("flight.html")
+
 
 if __name__ == "__main__":
     app.run(port=8000)

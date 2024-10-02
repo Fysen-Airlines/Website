@@ -1,0 +1,131 @@
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1c1c1e; /* Fallback color */
+    background-image: url('14.jpeg'); /* Add your background image path here */
+    background-size: cover;  /* Cover the entire viewport */
+    background-position: center;  /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    position: relative; /* Position relative for absolute children */
+    margin: 0;
+    padding: 20px;
+    color: #f5f5f5;
+    display: flex;
+    justify-content: center;  /* Center the content horizontally */
+    align-items: center;      /* Center the content vertically */
+    min-height: 100vh;        /* Ensure it takes the full viewport height */
+}
+
+/* Dim overlay for background */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim effect */
+    z-index: 1; /* Place the overlay below content */
+}
+
+/* Flights container */
+.flights-container {
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;           /* Center the container */
+    position: relative; /* Position relative for stacking context */
+    z-index: 2; /* Ensure the container is above the dim overlay */
+}
+
+h1 {
+    text-align: center;
+    color: #f5f5f5;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #f5f5f5;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Boarding pass styling */
+.boarding-pass {
+    background-color: #000000;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #f5f5f5;
+    max-width: 700px;         /* Set a max width for the boarding pass */
+    margin: 20px auto;        /* Center each boarding pass and add vertical spacing */
+}
+
+/* Flight icon styling */
+.flight-icon {
+    display: flex;
+    justify-content: flex-end; /* Align to the right */
+    align-items: center;
+    margin-bottom: 10px; /* Space below the icon */
+}
+
+.flight-icon .plane-icon {
+    color: #ff9800; /* Orange color for the plane icon */
+    font-size: 30px;
+    margin-right: 5px; /* Space between icon and airport codes */
+}
+
+.airport-codes {
+    color: #ff9800; /* Orange color for airport codes */
+    font-weight: bold;
+}
+
+/* Row styling for horizontal alignment */
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Space between rows */
+}
+
+/* Main flight details */
+.pass-details p {
+    margin: 0; /* Remove default margin for better alignment */
+    font-size: 16px;
+}
+
+/* Footer - for buttons or status */
+.pass-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pass-footer button {
+    background-color: #ff9800; /* Orange color for button */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pass-footer button:hover {
+    background-color: #e68900;
+}
+
+/* General media queries for responsiveness */
+@media (max-width: 600px) {
+    .flights-container {
+        padding: 20px;
+    }
+
+    .pass-details p {
+        font-size: 14px;
+    }
+}
+

@@ -1,0 +1,82 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/static/Assets/DRIFTtravel_a_luxury_airport_lounge_bright_sunny_day_04f9d8b6-da63-410f-97dd-65bce91a99aa.jpg'); /* Replace with the actual image file path */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;  /* Center the content horizontally */
+    align-items: center;      /* Center the content vertically */
+    height: 100vh;
+    position: relative;
+}
+
+/* Dim overlay for background image */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim the background */
+    z-index: 1; /* Ensure the overlay is below the content */
+}
+
+/* Profile container */
+.profile-container {
+    background-color: rgba(31, 29, 29, 0.2); /* Increase transparency for more dim effect */
+    padding: 30px 20px; /* Padding remains the same */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;  /* Reduced the max-width for a more compact layout */
+    width: 100%;
+    text-align: left; /* Align text to the left for better readability */
+    position: relative;
+    z-index: 2; /* Ensure the profile content is above the background overlay */
+    margin-left: auto; /* This pushes the container to the right */
+    margin-right: 40px; /* Additional space from the right */
+}
+
+/* Profile heading */
+.profile-container h1 {
+    font-size: 64px;  /* Slightly smaller font size for the heading */
+    margin-bottom: 20px; /* Reduced the space between the heading and the content */
+    color: #ffffff;
+}
+
+/* Profile details styling */
+.profile-details {
+    text-align: left;
+}
+
+.profile-item {
+    margin-bottom: 12px;  /* Reduced the space between items */
+}
+
+.profile-item label {
+    font-weight: bold;
+    color: #ffffff;
+    display: inline-block;
+    width: 140px;  /* Slightly reduced label width */
+}
+
+.profile-item span {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .profile-container {
+        padding: 15px;
+        margin-right: 20px; /* Maintain right margin on small screens */
+    }
+
+    .profile-item label {
+        width: 100px;  /* Further reduced width on small screens */
+    }
+}

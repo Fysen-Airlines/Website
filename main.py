@@ -164,6 +164,11 @@ async def get_flights():
     async with db_pool.acquire() as connection:
         flights = await connection.fetch("SELECT * FROM flights")
         return {"flights": flights}
+
+@app.get("/api/createRazorOrder")
+async def create_razor_order(amount: int):
+    order = create_order(amount, "INR")
+    return order
     
 @app.get('/api/isUserLoggedIn')
 async def is_user_logged_in(request: Request):

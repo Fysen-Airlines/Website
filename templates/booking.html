@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <title>Flight Booking</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <div class="container">
+        <img src="fysenwhite-removebg-preview.png" alt="Logo" class="logo">
+        <div class="flight-info">
+            <span class="flight-sign">Flight No: FYSEN 123 | Departure: GOT | Arrival: TYO</span>
+        </div>
+        <h1>Flight Booking</h1>
+        <form id="booking-form">
+            <div class="form-group inline-fields">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
+            <div class="form-group inline-fields">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="contact_number">Contact No.:</label>
+                <input type="tel" id="contact_number" name="contact_number" required>
+            </div>
+            <div class="form-group inline-fields">
+                <label for="source">Source:</label>
+                <input type="text" id="source" name="source" required>
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" required>
+            </div>
+            <div class="form-group inline-fields">
+                <label for="food_preference">Food Pref:</label>
+                <select id="food_preference" name="food_preference">
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="non-vegetarian">Non-Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                </select>
+                <label for="seat_number">Seat Number:</label>
+                <input type="text" id="seat_number" name="seat_number" required placeholder="e.g. 12A">
+                <button type="submit">Select Seat</button>
+            </div>
+            <div class="form-group">
+                <label for="insurance">
+                    <input type="checkbox" id="insurance" name="insurance">
+                    Buy me an insurance with this ticket: ₹150
+                </label>
+            </div>
+            <div class="checkout">
+                <button type="submit">Proceed to Checkout</button>
+            </div>
+            
+        </form>
+    </div>
+
+    <script src="static/Scripts/booking.js"></script>
+</body>
+</html>
