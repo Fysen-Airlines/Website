@@ -44,7 +44,7 @@
                         <input type="radio" name="trip" value="multicity"> Multicity
                         </label>
                     </div>
-                    <form class="search-form">
+                    <form class="search-form" onsubmit="redirectFlights()">
                         <input type="text" id="from" placeholder="From:">
                         <input type="text" id="to" placeholder="To:">
                         <label for="departure">Departure Date:</label>
@@ -53,7 +53,7 @@
                         <input type="date" id="return" placeholder="Return Date:">
                         <input type="number" id="people" placeholder="Travellers:">
                         <input type="text" id="Class" placeholder="Class:">
-                        <button type="submit" onsubmit="redirectFlights()">Search</button>
+                        <button type="submit" >Search</button>
                     </form>
                 </div>
             </div>

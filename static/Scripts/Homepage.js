@@ -22,3 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+function redirectFlights() {
+    window.location.href = "/fysen/website/flights"
+}
