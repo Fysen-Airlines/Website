@@ -44,8 +44,8 @@ def flights():
     return render_template("flightList.html")
 
 @app.route("/fysen/website/bookflight")
-def flight():
-    return render_template("bookflight.html")
+def book_flight():
+    return render_template("booking.html")
 
 
 if __name__ == "__main__":
