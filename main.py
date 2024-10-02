@@ -133,6 +133,27 @@ async def logout(response: Response):
     return {"message": "Logged out successfully"}
 
 
+@app.get("/api/fetchCustomerProfile")
+async def fetch_profile(request: Request):
+    session_token = request.cookies.get("session")
+    payload = jwt.decode(session_token, options={"verify_signature": False})
+    async with db_pool.acquire() as connection:
+        user = await connection.fetchrow(
+            "SELECT (first_name, last_name) FROM customer_profiles WHERE email = $1",
+            payload["email"]
+        )
+
+    to_ret = {
+        "first_name": user[0][0].split(" ")[0],
+        "last_name": user[0][1].split(" ")[0], 
+        "email": payload[0].email,
+        "phone": user[0][2],
+        "seat_preference": user[0][3],
+        "meal_preference": user[0][4]
+    }
+    return to_ret
+
+
 @app.middleware("http")
 async def verify_session_cookie(request: Request, call_next):
 

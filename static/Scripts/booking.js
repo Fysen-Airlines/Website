@@ -67,3 +67,32 @@ document.addEventListener('DOMContentLoaded', function () {
          }
      });
  });
+
+ function fetchInfoAutofill() {
+    fetch('https://oss-aryanroy.dev/api/fetchCustomerProfile', {
+        method: 'GET',
+        credentials: 'include'
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('first-name').value = data['first_name'];
+        document.getElementById('last-name').value = data['last_name'];
+        document.getElementById('email').value = data['email'];
+        document.getElementById('phone').value = data['phone'];
+        let seatPref = data['seat_preference'];
+        if (seatPref == "window") {
+            // generate a wubdiw seat number
+            document.getElementById('seat-number').value = "12A";
+        } else {
+            // generate a middle seat number
+            document.getElementById('seat-number').value = "25C";
+        }
+        document.getElementById('meal-preference').value = data['meal_preference'];
+        
+        document.getElementById('source').value = "BOM";
+        document.getElementById('destination').value = "DEL";
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+ }
