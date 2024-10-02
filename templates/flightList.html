@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking Service</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <!-- Replace the FYSEN text with a logo -->
+        <div class="logo">
+            <img src="/static/Assets/fysenwhite-removebg-preview.png" alt="FYSEN Logo"> <!-- Replace with your logo path -->
+        </div>
+        <div class="nav-links">
+            <a href="/fysen/website"">Home</a>
+            <a href="/fysen/website/myflights" class="active-link>Flights</a>
+            <a href="/fysen/website/about-us">Support</a>
+            <a href="/fysen/website/login">Login</a>
+        </div>
+    </nav>
+
+    <!-- Full-Screen Image with FYSEN Text -->
+    <div class="hero-image-container">
+        <div class="overlay"></div>
+        <img src="/static/Assets/window.jpg" alt="Fysen Image" class="hero-image">
+        <div class="hero-text">
+            <h1>FYSEN</h1>
+            <h3>Fly The Friendly Skies.</h3>
+        </div>
+
+        <!-- Booking Container with Translucent Background -->
+        <div class="booking-container">
+            <!-- Search Options (One-Way, Round-Trip, Multi-City) -->
+            <div class="search-options">
+                <button id="one-way-btn" class="btn">One-Way</button>
+                <button id="round-trip-btn" class="btn active">Round-Trip</button>
+                <button id="multi-city-btn" class="btn">Multi-City</button>
+            </div>
+
+            <!-- Flight Information Inputs -->
+            <div class="flight-info">
+                <input type="text" placeholder="Flying From" id="flying-from" value="Gothenburg Landvetter (GOT)">
+                <input type="text" placeholder="Flying To" id="flying-to" value="Tokyo (TYO)">
+                <input type="date" placeholder="Departure Date" id="departure-date" value="2023-12-04">
+                <input type="date" id="return-date" placeholder="Return Date" value="2023-12-20">
+            </div>
+
+            <!-- Additional Traveller & Class Selection -->
+            <div class="traveller-options">
+                <label for="travellers">Traveller:</label>
+                <select name="travellers" id="travellers">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="class">Class:</label>
+                <select name="class" id="class">
+                    <option value="economy">Economy</option>
+                    <option value="business">Business</option>
+                    <option value="first">First Class</option>
+                </select>
+
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flight Results Section (Below the Image) -->
+    <div class="results-section">
+        <h2>Available Flights</h2>
+
+        <!-- Search Results (Mock Flights will be rendered here) -->
+        <div class="flight-result">
+            <div class="airport-codes">
+                <span class="airport">DAC</span>
+                <div class="separator">
+                    <span class="line"></span>
+                    <span class="plane">✈</span>
+                    <span class="line"></span>
+                </div>
+                <span class="airport">LHR</span>
+            </div>
+            <div class="time">Take-off: 09:00 AM</div>
+            <div class="duration">Duration: 10h 30m, direct</div>
+            <div class="separator">
+                <span class="line"></span>
+            </div>
+            <div class="flight-price">₹12,000</div>
+            <button class="choose-btn">Book</button>
+        </div>
+        
+        <div class="flight-result">
+            <div class="airport-codes">
+                <span class="airport">GOT</span>
+                <div class="separator">
+                    <span class="line"></span>
+                    <span class="plane">✈</span>
+                    <span class="line"></span>
+                </div>
+                <span class="airport">TYO</span>
+            </div>
+            <div class="time">Take-off: 03:30 PM</div>
+            <div class="duration">Duration: 11h 20m, direct</div>
+            <div class="separator">
+                <span class="line"></span>
+            </div>
+            <div class="flight-price">₹15,500</div>
+            <button class="choose-btn">Book</button>
+        </div>
+    </div>
+    
+    <script src="/static/Scripts/flightlist.js"></script>
+</body>
+</html>

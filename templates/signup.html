@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Sign-Up</title>
+    <link rel="stylesheet" href="/static/Styles/signup.css">
+    <script src="/static/Scripts/signup.js" defer></script>
+</head>
+<body>
+    <div class="signup-container">
+        <!-- Left Side: Background Image and Text -->
+        <div class="promo-section">
+            <div class="promo-content">
+                <h1>Fysen</h1>
+                <p>Book Your Flight Without a Touch</p>
+            </div>
+        </div>
+
+        <!-- Right Side: Sign-Up Form -->
+        <div class="signup-section">
+            <form class="signup-form" onsubmit="postRegister(event)">
+                <h2>Create an Account</h2>
+                <p>Fill in your details to sign up</p>
+                <div class="input-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" placeholder="First Name" required>
+                </div>
+                <div class="input-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" placeholder="Last Name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" placeholder="youremail@example.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="id-upload">Upload Your ID</label>
+                    <input type="file" id="id-upload" accept="image/*" required>
+                </div>
+
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../Assets/1287409.jpg') center center/cover no-repeat;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for better readability */
+    z-index: 0;
+}
+
+.signup-container {
+    display: flex;
+    width: 80%;
+    height: 90vh;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1; /* Ensure this is above the overlay */
+}
+
+.promo-section {
+    flex: 1;
+    background: url('../Assets/1287409.jpg') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Promo Section (Left Side) */
+.promo-content {
+    color: #fff;
+    text-align: center;
+}
+
+.promo-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.promo-content p {
+    font-size: 1.2rem;
+}
+
+/* Sign-Up Section (Right Side) */
+.signup-section {
+    flex: 1;
+    background: linear-gradient(to bottom, #412613, #eb5008);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Form Styling */
+.signup-form {
+    width: 80%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.signup-form h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.signup-form p {
+    color: #bbb;
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #ccc;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+}
+
+.input-group input:focus {
+    outline: none;
+    background-color: #444;
+}
+
+/* File Upload Field */
+.input-group input[type="file"] {
+    padding: 5px;
+    color: white;
+}
+
+/* Submit Button */
+.signup-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff7e5f;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signup-btn:hover {
+    background-color: #feb47b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signup-container {
+        flex-direction: column;
+    }
+
+    .promo-section {
+        display: none;
+    }
+
+    .signup-section {
+        width: 100%;
+        height: 100%;
+    }
+
+    .signup-form {
+        width: 100%;
+        padding: 20px;
+    }
+}

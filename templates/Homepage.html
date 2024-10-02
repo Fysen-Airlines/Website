@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking Homepage</title>
+    <link rel="stylesheet" href="/static/Styles/Homepage.css">
+    <script src="/static/Scripts/Homepage.js"></script>
+</head>
+<body>
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{url_for('static', filename='Assets/FysenL1-home.png')}}" alt="Logo"> <!-- Replace with your logo URL -->
+        </div>
+        <ul class="nav-links">
+            <li><a href="/fysen/website">Home</a></li>
+            <li><a onclick="redirect('flights')">Flights</a></li>
+            <li><a href="/fysen/website/about-us">Support</a></li>
+            <li class="login"><a href="/fysen/website/login">Login</a></li>
+        </ul>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+            <h1>Fysen: Fly the Friendly Skies</h1>
+            <p> Above the clouds, everything feels possible.</p>
+        </div>
+            <div class="hero-form">
+                <div class="form-wrapper">
+                    <h1>Book Flights</h1>
+                    <h1></h1>
+                    <div class="trip-options">
+                        <!-- Trip Options: One Way, Round Trip, Multicity -->
+                        <label>
+                        <input type="radio" name="trip" value="one-way" checked> One Way
+                        </label>
+                        <label>
+                        <input type="radio" name="trip" value="round-trip"> Round Trip
+                        </label>
+                        <label>
+                        <input type="radio" name="trip" value="multicity"> Multicity
+                        </label>
+                    </div>
+                    <form class="search-form">
+                        <input type="text" id="from" placeholder="From:">
+                        <input type="text" id="to" placeholder="To:">
+                        <label for="departure">Departure Date:</label>
+                        <input type="date" id="departure" value="Departure Date:">
+                        <label for="return">Return Date:</label>
+                        <input type="date" id="return" placeholder="Return Date:">
+                        <input type="number" id="people" placeholder="Travellers:">
+                        <input type="text" id="Class" placeholder="Class:">
+                        <button type="submit" onsubmit="redirectFlights()">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works section -->
+    <section class="how-it-works">
+        <div class="how-it-works-content">
+            <h2>How it Works</h2>
+            <h3>Effortless Ticket Booking Process: Simplifying Your Travel Arrangements</h3>
+            <p>Simplify Your Travel Effortless Ticket Booking Process Every Time.</p>
+            <div class="process-container">
+                <div class="process-image">
+                    <img src="{{url_for('static', filename='Assets/travel-home.png')}}" alt="Travel Preparation Image">
+                </div>
+                <div class="process-steps">
+                    <div class="step">
+                        <h4>01</h4>
+                        <h5>Destination Research</h5>
+                        <p>Explore a vast array of options and find the perfect tickets for your journey hassle-free with our easy online booking.</p>
+                    </div>
+                    <div class="step">
+                        <h4>02</h4>
+                        <h5>Flight Booking</h5>
+                    </div>
+                    <div class="step">
+                        <h4>03</h4>
+                        <h5>Preparation & Enjoyment</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Popular Flights Section -->
+    <section class="flights-section">
+        <div class="container">
+            <p class="section-label">🟡 Recommendation</p>
+            <h1>Popular flights near your location available now.</h1>
+
+            <div class="flights-grid">
+                <div class="flight-card">
+                    <img src="{{url_for('static', filename='delhi-home.jpeg')}}" alt="Surakarta to Kuala Lumpur">
+                    <div class="flight-info">
+                        <h3>Surakarta → Kuala Lumpur</h3>
+                        <p>06 Apr, 2024</p>
+                        <p class="flight-price">Start From <strong>$213.53</strong></p>
+                    </div>
+                </div>
+
+                <div class="flight-card">
+                    <img src={{url_for('static', filename='Assets/mumbai-home.jpeg')}} alt="Jakarta to Bangkok">
+                    <div class="flight-info">
+                        <h3>Jakarta → Bangkok</h3>
+                        <p>06 Apr, 2024</p>
+                        <p class="flight-price">Start From <strong>$258.94</strong></p>
+                    </div>
+                </div>
+
+                <div class="flight-card">
+                    <img src="{{url_for('static', filename='Assets/chennai-home.jpeg')}}" alt="Bandung to London">
+                    <div class="flight-info">
+                        <h3>Bandung → London</h3>
+                        <p>07 Apr, 2024</p>
+                        <p class="flight-price">Start From <strong>$321.75</strong></p>
+                    </div>
+                </div>
+
+                <div class="flight-card">
+                    <img src="{{url_for('static', filename='Assets/kolkata-home.jpeg')}}" alt="Jakarta to Singapore">
+                    <div class="flight-info">
+                        <h3>Jakarta → Singapore</h3>
+                        <p>08 Apr, 2024</p>
+                        <p class="flight-price">Start From <strong>$70.53</strong></p>
+                    </div>
+                </div>
+
+                <div class="flight-card">
+                    <img src="{{url_for('static', filename='Assets/mumbai-home.jpeg')}}" alt="Surabaya to Denpasar Bali">
+                    <div class="flight-info">
+                        <h3>Surabaya → Denpasar Bali</h3>
+                        <p>09 Apr, 2024</p>
+                        <p class="flight-price">Start From <strong>$25.12</strong></p>
+                    </div>
+                </div>
+
+                <div class="flight-card">
+                    <img src="{{url_for('static', filename='Assets/delhi-home.jpeg')}}" alt="Yogyakarta to Istanbul Turkey">
+                    <div class="flight-info">
+                        <h3>Yogyakarta → Istanbul Turkey</h3>
+                        <p>10 Apr, 2024</p>
+                        <p class="flight-price">Start From <strong>$464.75</strong></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="see-more">
+                <button>See More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="features-section">
+
+            <p class="best-feature">🌟 Best Featured</p>
+            <h1>Seamless Ticket Reservation: Top Booking Platform Feature</h1>
+            <p class="subheading">Enjoy hassle-free ticket booking with our seamless and user-friendly platform feature.</p>
+
+            <div class="cards-container">
+                <div class="card">
+                    <h3>CS Standby 24 Hours</h3>
+                    <p>Customer support available round-the-clock for your convenience.</p>
+                </div>
+
+                <div class="card payment-card">
+                    <h3>Multi Payment Methods</h3>
+                    <div class="payment-options">
+                        <div class="payment-option">
+                            <img src="{{url_for('static', filename='Assets/paypal-home.png')}}" alt="Paypal" />
+                            <p>Paypal</p>
+                            <span>email@paypal.com</span>
+                        </div>
+                        <div class="payment-option">
+                            <img src="{{url_for('static', filename='Assets/stripe.png')}}" alt="Stripe" />
+                            <p>Stripe</p>
+                            <span>1234-xxxx-3333</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Automatic GPS Messages</h3>
+                    <p>Automated GPS notifications for hassle-free travel updates.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Facilitates Travel To A Total Of 43 Countries Worldwide</h3>
+                    <p>Enabling seamless travel access across 43 countries with global accessibility.</p>
+                    <div class="flags">
+                        <img src="" alt="Country Flag" />
+                        <img src="" alt="Country Flag" />
+                        <img src="" alt="Country Flag" />
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>The Plane Is In The Best Condition Every Day</h3>
+                    <p>Ensuring top-notch aircraft maintenance for a safe travel experience daily.</p>
+                    <img src="{{url_for('static', filename='Assets/plane-home.png')}}" alt="Airplane" class="card-image" />
+                </div>
+            </div>
+
+    </section>
+
+   <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <p class="faq-label">🌟 FAQs</p>
+            <h1>Frequently asked questions</h1>
+            <p class="subheading">Answers to commonly asked questions for clarity and convenience.</p>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">Do you offer travel insurance?</button>
+                    <div class="faq-answer">
+                        <p>Yes, optional travel insurance is available for unexpected events like trip cancellations, medical emergencies, or lost luggage.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">What payment methods do you accept?</button>
+                    <div class="faq-answer">
+                        <p>We accept major credit cards, debit cards, PayPal, and other digital wallets.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">Can I reserve a seat on the flight?</button>
+                    <div class="faq-answer">
+                        <p>Yes, you can reserve a seat on the flight based on the available seating options during booking.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">What if I need to change or cancel my flight?</button>
+                    <div class="faq-answer">
+                        <p>You can change or cancel your flight within the policy guidelines specified at the time of booking. Additional charges may apply.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">Are there any additional fees or taxes not included in the displayed price?</button>
+                    <div class="faq-answer">
+                        <p>All fees and taxes are included in the final price shown before payment is made. No hidden fees.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">How far in advance should I book my flight to get the best price?</button>
+                    <div class="faq-answer">
+                        <p>For the best prices, it's recommended to book your flight at least 2-3 weeks in advance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">What documents do I need to bring for my flight?</button>
+                    <div class="faq-answer">
+                        <p>You'll need a valid government-issued ID or passport, and in some cases, a visa for international travel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="company-info">
+                <h3>Fysen</h3>
+                <p>We offer a seamless flight booking experience, providing travelers with comprehensive options, competitive prices, and excellent customer service.</p>
+                <p>Contact: support@fysen.com | +91 7022345639</p>
+            </div>
+            <div class="company-links">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Partnerships</a></li>
+                </ul>
+            </div>
+            <div class="product-links">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="#">Flight</a></li>
+                    <li><a href="#">Hotel</a></li>
+                    <li><a href="#">Bus & Train</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
