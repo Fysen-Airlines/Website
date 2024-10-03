@@ -73,16 +73,16 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('first_name').value = "Krishna";
     document.getElementById('last_name').value = "Reddy"
     document.getElementById('email').value = "krishan.reddy@example.com"
-    document.getElementById('phone').value = "1098765432";
+    document.getElementById('contact_number').value = "1098765432";
     let seatPref = "window";
     if (seatPref == "window") {
         // generate a wubdiw seat number
-        document.getElementById('seat-number').value = "12A";
+        document.getElementById('seat_number').value = "12A";
     } else {
         // generate a middle seat number
-        document.getElementById('seat-number').value = "25C";
+        document.getElementById('seat_number').value = "25C";
     }
-    document.getElementById('meal-preference').value = "vegetarian";
+    document.getElementById('food_preference').value = "vegetarian";
     
     document.getElementById('source').value = "BOM";
     document.getElementById('destination').value = "DEL";
