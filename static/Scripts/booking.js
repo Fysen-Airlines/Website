@@ -47,6 +47,8 @@ document.getElementById('booking-form').addEventListener('submit', function(even
     })
 });
 
+
+
 // razorpay integration
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -68,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
      });
  });
 
+
  function fetchInfoAutofill() {
 
     document.getElementById('first_name').value = "Krishna";
@@ -87,3 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('source').value = "BOM";
     document.getElementById('destination').value = "DEL";
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    fetchInfoAutofill();
+});
