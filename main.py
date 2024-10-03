@@ -139,7 +139,7 @@ async def fetch_profile(request: Request):
     payload = jwt.decode(session_token, options={"verify_signature": False})
     async with db_pool.acquire() as connection:
         user = await connection.fetchrow(
-            "SELECT (first_name, last_name) FROM customer_profiles WHERE email = $1",
+            "SELECT * FROM customer_profiles WHERE email = '$1'",
             payload["email"]
         )
 
