@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
  function fetchInfoAutofill() {
 
-    document.getElementById('first-name').value = "Krishna";
-    document.getElementById('last-name').value = "Reddy"
+    document.getElementById('first_name').value = "Krishna";
+    document.getElementById('last_name').value = "Reddy"
     document.getElementById('email').value = "krishan.reddy@example.com"
     document.getElementById('phone').value = "1098765432";
     let seatPref = "window";
