@@ -71,24 +71,37 @@ document.addEventListener('DOMContentLoaded', function () {
  });
 
 
- function fetchInfoAutofill() {
+function fetchInfoAutofill() {
 
-    document.getElementById('first_name').value = "Krishna";
-    document.getElementById('last_name').value = "Reddy"
-    document.getElementById('email').value = "krishan.reddy@example.com"
-    document.getElementById('contact_number').value = "1098765432";
-    let seatPref = "window";
-    if (seatPref == "window") {
-        // generate a wubdiw seat number
-        document.getElementById('seat_number').value = "12A";
-    } else {
-        // generate a middle seat number
-        document.getElementById('seat_number').value = "25C";
-    }
-    document.getElementById('food_preference').value = "vegetarian";
-    
-    document.getElementById('source').value = "BOM";
-    document.getElementById('destination').value = "DEL";
+    fetch(
+        'https://oss-aryanroy.dev/api/fetchCustomerProfile',
+        {
+            method: 'GET',
+            credentials: 'include'
+        },
+    ).then(response => {
+        if (response.ok) {
+            response.json().then(data => {
+                document.getElementById('first_name').value = data['first_name'];
+                document.getElementById('last_name').value = data['last_name'];
+                document.getElementById('email').value = data['email'];
+                document.getElementById('contact_number').value = data['phone'];
+                document.getElementById('food_preference').value = data['food_preference'];
+                let seatPref = data['seat_preference'];
+                if (seatPref == "window") {
+                    // generate a wubdiw seat number
+                    document.getElementById('seat_number').value = "12A";
+                } else {
+                    // generate a middle seat number
+                    document.getElementById('seat_number').value = "25C";
+                }
+                document.getElementById('source').value = "BOM";
+                document.getElementById('destination').value = "DEL";
+            });
+        } else {
+            console.log('User is not logged in');
+        }
+    });
 }
 
 

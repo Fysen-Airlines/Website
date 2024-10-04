@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aircraft Seat Booking</title>
+    <!-- Font Awesome for seat icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM2C1sdh0I5Png0h8HA/s9XJp+KFGz9Je+6vsT1" crossorigin="anonymous">
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            
+            background-image: url("back.jpg");
+            background-size:100%;
+            
+            color:auto;
+        }
+
+        header {
+            background-color:transparent;
+            color:black;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        /* Left-side options (Zoom, Settings, Color) */
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .left-panel .option-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        /* Right-side floorplan image container */
+        .floorplan-img {
+            position: relative;
+            width: 450px;
+            height: 1500px; /* Adjusted height */
+            background-image: url('floorplan-section-3.png-removebg-preview.png'); /* Path to the seat map image */
+            background-size: cover;
+            margin: 0 auto;
+             /* Added padding to give layout space */
+             /* Optional shadow for aesthetics */
+        }
+
+        /* Create a semi-transparent overlay */
+        /* Dim background image by reducing opacity */
+
+
+        /* Ensure seat buttons remain visible by giving them a higher opacity */
+
+
+        /* Seat button styles */
+        .seat {
+            position:absolute;
+            width: 30px;
+            height: 40px;
+            background-color: transparent; /* Blue seat color */
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: transparent;
+            font-weight: bold;
+            font-size: 0.9em;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .seat:hover {
+            background-color: rgb(234, 133, 39); /* Red on hover */
+        }
+
+        /* Seat info tooltip (hidden by default) */
+        .seat-info {
+            display: none;
+            position: absolute;
+            background-color: rgba(15, 14, 14, 0);
+            border: transparent;
+            padding: 0;
+            z-index: 10;
+            font-size: 0.8em;
+            width: 0;
+        }
+
+        .seat:hover .seat-info {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: white;">Fysen ATR Seat Booking</h1>
+        
+    </header>
+
+    <section class="main-content">
+        <!-- Left Panel with Options -->
+      
+
+        <!-- Right Panel with Seat Map -->
+        <div class="floorplan-img">
+            <!-- Dynamic seats will be generated here -->
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Fysen Booking System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Data for seat rows, columns, and pricing
+        const seatRows = 19; // Total number of rows
+        const seatColumns = ['A', 'B', 'C', 'D']; // Seat columns
+        const seatWidth = 47; // Seat width in px
+        const seatHeight = 50; // Seat height in px
+        const seatTopOffset = 360; // Top offset for seat placement
+        const seatLeftOffset = 140; // Left offset for seat placement
+
+        // Price mapping for seat columns
+        const seatPrices = {
+            'A': 150, 'B': 120, 'C': 100, 'D': 100
+        };
+
+        // Generate seat elements dynamically
+        function generateSeats() {
+            const seatContainer = document.querySelector('.floorplan-img'); // Get the seat container element
+
+            for (let row = 1; row <= seatRows; row++) {
+                seatColumns.forEach((column, colIndex) => {
+                    // Create seat button element
+                    const seatButton = document.createElement('button');
+                    seatButton.classList.add('seat'); // Add seat class
+                    seatButton.textContent = `${column}${row}`; // Set seat number as button text
+
+                    // Position seats dynamically based on row and column
+                    seatButton.style.top = `${seatTopOffset + row * seatHeight}px`;
+                    seatButton.style.left = `${seatLeftOffset + colIndex * seatWidth}px`;
+
+                    // Seat number and pricing
+                    const seatNumber = `${column}${row}`; // e.g., A1, B1, etc.
+                    const price = seatPrices[column]; // Price based on column
+
+                    // Add onclick function to seat
+                    seatButton.setAttribute('onclick', `bookSeat('${seatNumber}', ${price})`);
+
+                    // Create seat-info div to show seat details (tooltip)
+                    const seatInfoDiv = document.createElement('div');
+                    seatInfoDiv.classList.add('seat-info');
+                    seatInfoDiv.innerHTML = `
+                        Seat ${seatNumber}<br>
+                        Price: $${price}<br>
+                        <button onclick="bookSeat('${seatNumber}', ${price})">Book Now</button>
+                    `;
+
+                    // Append seat-info to seat button
+                    seatButton.appendChild(seatInfoDiv);
+
+                    // Append seat button to container
+                    seatContainer.appendChild(seatButton);
+                });
+            }
+        }
+
+        // Call the function to generate seats when the page loads
+        generateSeats();
+
+        // Function to handle seat booking
+        function bookSeat(seatNumber, price) {
+            const confirmBooking = confirm(`Do you want to book seat ${seatNumber} for $${price}?`);
+            if (confirmBooking) {
+                alert(`Seat ${seatNumber} booked successfully!`);
+                // Implement your booking logic here
+            }
+        }
+    </script>
+</body>
+</html>

@@ -47,6 +47,10 @@ def flights():
 def book_flight():
     return render_template("booking.html")
 
+@app.route("/fysen/website/selectSeat")
+def select_seat():
+    return render_template("selectSeat.html")
+
 
 if __name__ == "__main__":
     app.run(port=8000)

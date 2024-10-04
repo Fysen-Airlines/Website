@@ -138,18 +138,18 @@ async def fetch_profile(request: Request):
     session_token = request.cookies.get("session")
     payload = jwt.decode(session_token, options={"verify_signature": False})
     async with db_pool.acquire() as connection:
-        user = await connection.fetchrow(
+        user = await connection.fetchval(
             "SELECT * FROM customer_profiles WHERE email = $1",
             payload["email"]
         )
     print(user)
     to_ret = {
-        "first_name": user[0][0].split(" ")[0],
-        "last_name": user[0][1].split(" ")[0], 
+        "first_name": user[0].split(" ")[0],
+        "last_name": user[0].split(" ")[1], 
         "email": payload[0].email,
-        "phone": user[0][2],
-        "seat_preference": user[0][3],
-        "meal_preference": user[0][4]
+        "phone": user[2],
+        "seat_preference": user[3],
+        "meal_preference": user[4]
     }
     return to_ret
 
@@ -206,6 +206,7 @@ async def is_user_logged_in(request: Request):
 
     print(user)
     return {"name": user[0][0] + " " + user[0][1]}
+
 
 def verify_session_token(token: str) -> bool:
     try:
